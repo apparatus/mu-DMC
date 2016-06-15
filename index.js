@@ -1,10 +1,12 @@
-var bloom = require('boomrun')()
+var bloomrun = require('boomrun')
 
 function mu (opts) {
   opts = opts || {}
 
   // DMC: important for router pattern
   if (opts.mu) { return opts.mu }
+
+  var bloom = bloomrun()
 
   var exp = {
     route: route,
