@@ -1,28 +1,38 @@
+var bloom = require('boomrun')()
+
 function mu (opts) {
   opts = opts || {}
+
+  // DMC: important for router pattern
+  if (opts.mu) { return opts.mu }
 
   var exp = {
     route: route,
     define: define,
     act: act,
-    mu: exp // api: es6 (see examples)
+    list: list, // DMC: important for http api layer integration
+    mu: exp // DMC: api: es6 (see examples)
   }
 
-  return exp // api: es6 (see examples)
+  return exp // DMC: api: es6 (see examples)
 
   function route (pattern, cb) {
 
   }
 
-  function define (pattern, fn) {
+  function define (pattern, cb) {
 
   }
 
   function act (args, cb) {
 
   }
+
+  function list (pattern, opts) {
+    return bloom.list(pattern, opts)
+  }
 }
 
-mu.create = mu // api: es6 (see examples)
+mu.create = mu // DMC: api: es6 (see examples)
 
 module.exports = mu
