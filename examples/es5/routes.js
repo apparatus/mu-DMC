@@ -7,3 +7,5 @@ mu.route('*', http)
 
 local.listen()
 http.listen(8080)
+
+module.exports = mu

@@ -1,11 +1,14 @@
 function mu (opts) {
   opts = opts || {}
 
-  return {
+  var exp = {
     route: route,
     define: define,
-    act: act
+    act: act,
+    mu: exp // api: es6 (see examples)
   }
+
+  return exp // api: es6 (see examples)
 
   function route (pattern, cb) {
 
@@ -19,4 +22,7 @@ function mu (opts) {
 
   }
 }
+
+mu.create = mu // api: es6 (see examples)
+
 module.exports = mu
