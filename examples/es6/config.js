@@ -1,8 +1,8 @@
 import {route} from 'mu'
-import {httpTport, localTport} from 'mu/transports'
+import {createHttp, createLocal} from 'mu/transports'
 
-const http = httpTport()
-const local = localTport()
+const local = createLocal()
+const http = createHttp()
 
 route({ns: 'cmp'}, local)
 route('*', http)

@@ -1,8 +1,8 @@
 const {route} = require('mu')
-const {httpTport, localTport} = require('mu/transports')
+const {createHttp, createLocal} = require('mu/transports')
 
-const local = localTport()
-const http = httpTport()
+const local = createLocal()
+const http = createHttp()
 
 route({ns: 'cmp'}, local)
 route('*', http)

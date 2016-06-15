@@ -1,4 +1,4 @@
 module.exports = {
-  local: require('./local'),
-  http: require('./http')
+  createLocal: require('./local'),
+  createHttp: require('./http')
 }
