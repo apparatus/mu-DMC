@@ -1,4 +1,4 @@
-function mu(opts) {
+function mu (opts) {
   opts = opts || {}
 
   return {
@@ -11,11 +11,11 @@ function mu(opts) {
 
   }
 
-  function define(pattern, fn) {
+  function define (pattern, fn) {
 
   }
-  
-  function act(args, cb) {
+
+  function act (args, cb) {
 
   }
 }

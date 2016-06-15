@@ -2,10 +2,10 @@ const {route} = require('mu')
 const {httpTport, localTport} = require('mu/transports')
 
 const local = localTport()
-const local = httpTport()
+const http = httpTport()
 
 route({ns: 'cmp'}, local)
 route('*', http)
 
-local()
-http(8080)
+local.listen()
+http.listen(8080)
