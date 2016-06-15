@@ -1,6 +1,6 @@
 {
   "name": "mu",
-  "description": "esperimental full stack microservices",
+  "description": "fullstack microservices framework",
   "keywords": [
     "microservices",
     "fullstack"
@@ -9,32 +9,28 @@
   "license": "MIT",
   "author": "Peter Elger (http://nearform.com/)",
   "contributors": [
-    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)"
+    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)",
+    "David Mark Clements <david.clements@nearform.com>"
   ],
-  "main": "./mu.js",
   "engines": {
     "node": "*"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/apparatus/fuge.git"
-  },
-  "bin": {
-    "fuge": "./fuge.js"
+    "url": "https://github.com/apparatus/mu.git"
   },
   "scripts": {
-    "lint": "jshint *.js && jshint **/*.js",
-    "test": "jshint *.js && jshint **/*.js && node test",
-    "coverage": "istanbul cover test/*Test.js && open ./coverage/lcov-report/index.html",
-    "coverage-check": "istanbul cover test/*Test.js && istanbul check-coverage",
+    "lint": "spacey-standard",
+    "test": "spacey-standard && node test",
+    "coverage": "istanbul cover test && open ./coverage/lcov-report/index.html",
+    "coverage-check": "istanbul cover test && istanbul check-coverage",
     "commit-check": "npm run lint"
   },
   "devDependencies": {
-    "del": "^2.1.0",
-    "jshint": "^2.9.1-rc1",
+    "istanbul": "^0.4.3",
     "pre-commit": "^1.1.1",
+    "spacey-standard": "^1.0.2",
     "tape": "^4.2.0"
   }
 }
