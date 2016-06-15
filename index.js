@@ -12,11 +12,10 @@ function mu (opts) {
     route: route,
     define: define,
     act: act,
-    list: list, // DMC: important for http api layer integration
-    mu: exp // DMC: api: es6 (see examples)
+    list: list // DMC: important for http api layer integration
   }
-
-  return exp // DMC: api: es6 (see examples)
+  exp.mu = exp // DMC: api: es6 (see examples)
+  return exp
 
   function route (pattern, cb) {
 
