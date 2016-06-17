@@ -1,4 +1,4 @@
-var bloomrun = require('boomrun')
+var router = require('./lib/router')
 
 function mu (opts) {
   opts = opts || {}
@@ -6,7 +6,7 @@ function mu (opts) {
   // DMC: important for router pattern
   if (opts.mu) { return opts.mu }
 
-  var bloom = bloomrun({indexing: 'depth'})
+  var routes = router()
 
   var exp = {
     route: route,
@@ -17,20 +17,22 @@ function mu (opts) {
   exp.mu = exp // DMC: api: es6 (see examples)
   return exp
 
-  function route (pattern, cb) {
-
+  function route (pattern, transport) {
+    routes.add(pattern, transport)
   }
 
   function define (pattern, cb) {
-
+    var transport = routes.lookup(pattern)
+    transport.define(pattern, cb)
   }
 
   function act (args, cb) {
-
+    var transport = routes.lookup(args)
+    transport.act(args, cb)
   }
 
-  function list (pattern, opts) {
-    return bloom.list(null, {patterns: true})
+  function list () {
+    return routes.list()
   }
 }
 
