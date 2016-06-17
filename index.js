@@ -6,7 +6,7 @@ function mu (opts) {
   // DMC: important for router pattern
   if (opts.mu) { return opts.mu }
 
-  var bloom = bloomrun()
+  var bloom = bloomrun({indexing: 'depth'})
 
   var exp = {
     route: route,
@@ -30,7 +30,7 @@ function mu (opts) {
   }
 
   function list (pattern, opts) {
-    return bloom.list(pattern, opts)
+    return bloom.list(null, {patterns: true})
   }
 }
 
