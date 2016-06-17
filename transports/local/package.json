@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "spacey-standard",
-    "test": "spacey-standard && node test",
+    "test": "spacey-standard && node test | tap-dot",
     "coverage": "istanbul cover test && open ./coverage/lcov-report/index.html",
     "coverage-check": "istanbul cover test && istanbul check-coverage",
     "commit-check": "npm run lint"
@@ -17,5 +17,8 @@
     "spacey-standard": "^1.0.2",
     "tape": "^4.2.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bloomrun": "^2.0.0"
+  }
 }

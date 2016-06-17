@@ -23,16 +23,20 @@ function mu (opts) {
 
   function define (pattern, cb) {
     var transport = routes.lookup(pattern)
-    transport.define(pattern, cb)
+    transport.register(pattern, cb)
   }
 
   function act (args, cb) {
     var transport = routes.lookup(args)
-    transport.act(args, cb)
+    if (!transport) {
+      cb(Error('No route found for pattern, register a default route'))
+      return
+    }
+    transport.request(args, cb)
   }
 
   function list () {
-    return routes.list()
+    return routes.list({patterns: true})
   }
 }
 
